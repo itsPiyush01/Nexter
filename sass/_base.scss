@@ -33,3 +33,24 @@ body {
   font-weight: 300;
   line-height: 1.6;
 }
+
+.container {
+  display: grid;
+  //   min-content==auto is default
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  //width~~1100-1200   -->1140/8 ~142px-->14rem
+  grid-template-columns:
+    [sidebar-start] 8rem [sidebar-end full-start] minmax(
+      6rem,
+      1fr
+    ) [center-start]
+    repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+    [center-end] minmax(6rem, 1fr) [full-end];
+  //   grid-template-columns: auto repeat(8, minmax(min-content, 14rem)) auto; or justify-content: center;
+
+  //   all the direct children
+  & > * {
+    padding: 40px;
+    font-size: 3rem;
+  }
+}
