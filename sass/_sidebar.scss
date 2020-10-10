@@ -2,6 +2,14 @@
   background-color: $color-primary;
   grid-column: sidebar-start/sidebar-end;
   grid-row: 1 / -1;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-column: 1 /-1;
+    grid-row: 1 / 2;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
   display: flex;
   justify-content: center;
 }
@@ -27,7 +35,20 @@
     transform: translateY(-1.5rem);
   }
   &::after {
-    height: 3px;
+    // height: 3px;
     transform: translateY(1.3rem);
+  }
+
+  @media only screen and (max-width: $bp-large) {
+    margin-top: 3rem;
+    margin-right: 3rem;
+
+    &::before {
+      transform: translateY(-0.8rem);
+    }
+    &::after {
+      // height: 3px;
+      transform: translateY(0.8rem);
+    }
   }
 }
